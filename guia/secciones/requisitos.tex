@@ -1,0 +1,68 @@
+%DESARROLLO Y UML
+
+\section{Desarrollo del proyecto}
+
+Para la realización de este proyecto se han seguido una serie de pasos de forma cronológica:
+\begin{enumerate}
+\item \underline{Aprendizaje de interfaces gráficas}\\
+En primer lugar, se estudio el código de iwconfig, para tratar de integrar el comando dentro del proyecto, se pretendía hacer que el programa pudiera conectar a una red seleccionada, pero para ello se necesitan privilegios de administrador, por tanto, se descartó esta posibilidad. También se consideró integrar el código de iwlist junto al código del proyecto, pero se descarto esta opción para simplificar el código.\\
+
+Al mismo tiempo, se lleva a cabo un aprendizaje de funcionamiento de varias librerías gráficas para, junto con el lenguaje a utilizar, llevar a cabo el desarrollo del proyecto. Se descartó Java como lenguaje en detrimento de C/C++ o Python y se empezó a realizar pruebas en C con GTK+, pero fue descartado al pasar a utilizar C++ por dificultades en su integración. Finalmente, se eligió C++ y las librerías Qt\footnote{http://qt.nokia.com/}.Se realizan varias pruebas para practicar con la interactuación de widgets --una de las principales caractrísticas de Qt-- con ejemplos sencillos, como unir el valor de un spinbox con una barra deslizante \ver{prueba1}.\\ 
+
+\figura{0.5}{imgs/capturas/ejemplopruebas.png}{Prueba con widgets de Qt}{prueba1}{h}
+
+
+\item \underline{Pruebas con las herramientas elegidas}\\
+
+Tras comunicar al tutor la elección del lenguaje y las librerías gráficas, se procedió a realizar un primer diseño de la interfaz gráfica. Esta se pretendía hacerla lo más similar posible a la interfaz del programa original (NetSurveyor), pero la interactividad en la selección de las redes y los gráficos mostrados se dejaron para futuras ampliaciones del proyecto.\\	
+
+\figura{0.7}{imgs/capturas/netsurveyor.png}{Vista del programa NetSurveyor}{netsurveyor}{h}
+
+
+Durante el análisis y desarrollo del proyecto, se estudió el lenguaje Java, pero al no contar el alumno con experiencia en este lenguaje ni haber realizado ninguna interfaz gráfica, se decidió descartar el lenguaje para acortar la fase de desarrollo. Sin embargo, se pretendía que el proyecto fuese ampliable a otras plataformas (Windows, Mac Os X\ldots), así que se decidió utilizar C++ que, junto a las librerías Qt, satisfacían esta premisa.\\
+
+Se realizaron pruebas sencillas con la librería Qt, interacción entre widgets \ver{prueba1} , mostrar elementos en tablas, lectura/escritura en ficheros. Con estas pruebas se fue directo al grano en el desarrollo del proyecto.
+ Esto supuso un cúmulo de problemas que se tuvo que estudiar la solución, el principal problema fue que el escaneo lo tenia que hacer de forma continua, bloqueando el resto del programa y haciendo que el sistema se volviera muy lento. Para solucionar éste problema, se estudió el capítulo 14 del libro \cite{Blanchette}, multithreading, y comunicando el thread creado con la interfaz principal.\\
+
+\item \underline{Diseño de la interfaz}\\
+
+La interfaz fue diseñada siguiendo el diseño del programa NetSurveyor, por lo que en este punto, no hubo dificultad al realizar el diseño. El IDE QtCreator incorpora en su interfaz un apartado para esta tarea. También existe el IDE QtDesigner, que combinado con QDevelop, realiza la misma tarea que QtCreator, así pues, podríamos considerar QtCreator como una suite de programacion Qt.\\
+
+\item \underline{Adquisición de datos}\\
+Para la adquisición de datos desde el comando \textit{iwlist wlan0 scan} se prefirió utilizar un comando de ejecución de procesos, volcando los resultados en un fichero. Esto facilitará posteriormente la elección de la tarjeta wi-fi y la posibilidad de actualización de las herramientas iwtools.\\
+El principal problema al tomar los datos fue que se usó el descriptor stdin ($>>$), el cual da la facilidad de poder tomar los datos por separado, ya que considera los espacios como separadores. Esto supone un problema cuando el ESSID (el nombre de la red) contiene varias palabras, ya que sólo toma la primera de ellas. Se descubrió que hay un flag que evita que corte el flujo de datos por lectura de espacios, noskipws (no skip white spaces), se realizaron pruebas con éste flag pero no resultaron satisfactorias, el código no leía correctamente la ESSID. Finalmente, se decidió optar por utilizar la función getline\footnote{istream\& getline (char* s, streamsize n, char delim );}.
+También se definieron dos funciones, una para cortar una cadena `split'\footnote{void splitstring(string str, string separator, string \&first, string \&second);} y otra para desechar la primera parte de la cadena `limpiar'\footnote{void limpiar(string str, string separator, string \&resultado);}. \\
+
+\item \underline{Integración del código en el proyecto}\\
+
+La integración del la adquisición de datos con el del diseño de la interfaz descubrió un problema que no se había tenido en cuenta, el escaneo continuo de la tarjeta wi-fi bloqueaba el flujo normal del programa. Esto hizo necesario incorporar un thread al programa, el cual será el encargado de realizar esta tarea.\\
+Esto produjo una parada en el desarrollo del proyecto, no se había tenido en cuenta esta estrategia y tuvo que estudiarse cómo programar threads. Para ello, se estudió el capítulo 14 del libro C++ GUI Programming with Qt4\cite{Blanchette}.\\
+
+\figura{0.9}{imgs/capturas/threads.png}{Ejemplo de uso de threads del libro usado}{threads}{h}
+
+Una vez solucionado éste problema, se procedió a mostrar los datos en una lista tipo TreeView, generar los gráficos, los informes (pdf y html)\ldots Para mostrar los datos en el TreeView, se encontraron dificultades debido a que se necesitaba crear un model estándar de item, pero no se conseguía que mostrara los datos, así pues, se estudio el capítulo de tablas y listas del libro \cite{Thelin}. Finalmente, se descubrió que se necesitaba crear un QItemDelegate.La clase QItemDelegate proporciona una visualización y funciones de edición de elementos de datos de un modelo.
+QItemDeleate se puede utilizar para proporcionar características personalizadas y mostrar widgets de editor de visas de elementos basados en subclases QAbstractItemView. El uso de un delegado para este propósito permite que los mecanismos de visualización y edición para personalizar sean desarrollados de forma independiente del modelo y la vista.\\
+
+Cuando se muestran los elementos de un modelo personalizado en una vista estándar, se garantiza que el modelo devuelve los datos adecuados para cada uno de los roles que determinan la aparición de los elementos en las vistas. El delegado por defecto utilizado por las vistas estándar de Qt utiliza esta información de las funciones para mostrar los elementos en la mayoría de las formas más comunes que exigen los usuarios. \\
+
+
+\lstinputlisting[language=c++,caption={ItemDelegate implementado en el código}]{src/itemDelegate.h}
+
+
+\item \underline{Estudio de Gnuplot}\\
+Para estudio de GnuPlot se decidió hacer pruebas de gráficos con una batería de datos ya preparados, se limitó el uso de éste a generar dos scripts que prepara el programa para realizar los gráficos resultantes y dos ficheros con los datos a mostrar.\\
+
+\lstinputlisting[language=java,caption={Ejemplo de script para Gnuplot}]{src/gnuplot1.plt}
+
+
+El resultado de estos scripts son los gráficos de la potencia de las señales y el uso de los canales.\\
+
+\item \underline{Tests}\\
+Se procedió a las pruebas de la aplicación en diversos lugares, tanto en la Universidad, como en la biblioteca municipal de Onda, en casa del alumno con las redes de los vecinos y añadiendo routers wi-fi desechados, en cafeterías con servicio wi-fi \ldots Se procedió al análisis de los datos y se encontró un problema extraño, la lectura de la señal a veces lee valores incorrectos. La primera hipótesis fue un error de programación en la lectura de ese dato, y se procedió a analizar (se especulaba que tomaba el valor negativo de forma incorrecta), pero no se encontró el error. Se procedió entonces a realizar pruebas sin la llamada al procesi \textit{iwlist wlan0 scan}, utilizando una captura de datos previa. Esto debería permitir contrastar la hipótesis y, por tanto, solucionar este problema. No se encontró el error, pero la aplicación seguía leyendo de vez en cuando valores extraños.\\
+
+
+\figura{0.9}{imgs/capturas/capturaerronea2.png}{Vista de una lectura errónea}{erronea}{}
+\figura{0.9}{imgs/capturas/capturaerronea.png}{Vista de una lectura errónea}{erronea2}{}
+
+Tras varias pruebas de depuración, se advirtió que las redes que en algún momento habían sido registradas y que en posteriores lecturas no aparecían, su vector de señales no siempre actualizaba su elemento añadiendo un 0 al instante de la lectura, siendo de distinto tamaño al resto de vectores, con lo que, en ocasiones, provocaba una lectura de valores erróneos debido a que el vector apuntaba a una dirección de memoria incorrecta.\\
+\end{enumerate} 

@@ -1,0 +1,47 @@
+Esta herramienta proporciona información acerca de los puntos de acceso colindantes para el análisis de intensidad de señales y el uso de canales de transmisión. También proporciona estos informes en soporte portable (PDF) o html. Apoyándose en herramientas libres tales como iwlist, Gnuplot, \LaTeX y Qt se generan las estadísticas de los puntos de acceso.\\
+
+\section{Motivación}
+Durante la instalación de redes inalámbricas, es importante verificar que la señal llega correctamente hasta el lugar que nos interese, y que las interferencias causadas por las redes colindantes sean las mínimas posibles, para que la transmisión sea lo más eficiente posible.\\
+
+Éste escáner de redes inalámbricas permite solucionar de problemas de una red inalámbrica existente o analizar cual o cuales llegan con más potencia a nuestro receptor. También permite saber cuántas redes hay en el entorno y la potencia de sus señales, para verificar la cobertura wifi de un determinado espacio, la posibilidad del roaming, la presencia de interferencias de radiofrecuencia o "puntos muertos", y la ubicación óptima de los puntos de acceso y las antenas.\\
+
+Esta herramienta de diagnóstico correspondería a la categoría de escáneres WiFi. El más conocido de esta categoría es NetStumbler. Una herramienta de informes de cada red inalámbrica que detecta, junto con el canal utilizado por el punto de acceso (AP), la potencia de la señal recibida\ldots \\
+
+La forma en que esto funciona es que aproximadamente cada 100 ms un punto de acceso envía una señal y la tarjeta inalámbrica 802.11, también conocida tarjeta wifi o ``wifi'' la detecta, y añade el SSID a su lista de redes inalámbricas conocidas. Además, es posible obtener los informes para cada AP individualmente, es decir, los que recibe en su ubicación actual.\\
+
+
+Este programa ha sido desarrollado con las siguientes herramientas:\\
+
+\begin{itemize}
+\item Iwtools
+\item GnuPlot
+\item Librerías gráficas Qt
+\item \LaTeX
+\end{itemize}
+
+Las principales ventajas de utilizar herramientas dentro del programa son más facilidad de mantener el código actualizado, y reutilización de recursos, ya que es posible que algunas de estas herramientas ya se encuentren instaladas en el sistema operativo.\\
+
+La programación ha sido realizada en C++, lenguaje estudiado en la asignatura ``estructuras de datos y de la información'', y que ofrece programación orientada a objetos, el cual es un paradigma de la programación básico para la programación de \guis , las cuales, además, suelen utilizar programación orientada a eventos.\\
+
+La programación orientada a eventos es un tipo de programación distinto al estudiado en la ingeniería técnica en informática de sistemas. El concepto de programacion estructurada, en la programación orientada a eventos es completamente distinto. Un programa puede ser intervenido por un agente externo (por ejemplo, un flujo de datos desde un periférico) sin necesidad de que el usuario o programador tengan que estar pendientes de su recepción. Esto permite el trabajo con threads.\\
+
+
+
+\section{Objetivos y herramientas}
+
+La herramienta de desarrollo (en adelante, \wifi) está basada en el programa para Microsoft Windows NetSurveyor\footnote{http://www.performancewifi.net/performance-wifi/products/netsurveyor-network-discovery.htm}. Este proporciona información gráfica de las distintas redes detectadas y permite una interpretación casi intuitiva. \\
+
+El objetivo principal de éste proyecto es hacer una interfaz gráfica para combinar herramientas libres de análisis de redes inalámbricas con otras de muestreo estadístico, utilizando una plataforma de desarrollo multiplataforma para tener la opción de hacer versiones para otros sistemas operativos.\\
+
+La creación de \guis \ tiene una gran relevancia a la hora de interactuar con un programa, permitiendo incluso, un mayor entendimiento de los datos a analizar, como en éste caso. En el desarrollo de \guis \ es importante tener en cuenta la funcionalidad del programa frente a querer mostrar todos los datos sin aparente criterio o de tener que recurrir a comandos de consola para seleccionar los datos que nos interesen en un momento determinado.\\
+
+
+\section{IEEE 802.11}
+\subsection{introducción}
+Hoy en día, el estándar IEEE 802.11, más conocido por \Wifi \ se ha popularizado en las redes domésticas. La comodidad que supone no tener cables en los ordenadores, principalmente portátiles, permite un mejor traslado de los equipos informáticos, ya que es común disponer de tomas de corriente eléctrica en prácticamente todas las paredes de una casa u oficina, pero no suelen encontrarse equipadas de tomas ethernet.\\
+También es más sencilla la conexión de varios ordenadores, ya que no se está tan limitado de recursos (por ejemplo, disponer de un router de 4 puertos ethernet y tener 5 ordenadores). Con \Wifi \ es posible conectar hasta 254 equipos a la misma red sin necesidad de hacer un gasto extra en infraestructuras.\\
+
+El estándar \Wifi dispone de varias especificaciones (a, b, g \ldots), siendo el estándar IEEE802.11n ratificado por IEEE en 2009 como el más actual de esta tecnología. Este estándar tiene una velocidad de 600 Mbps en la capa física, tiene compatibilidad con todos los estándares anteriores y puede trabajar en dos bandas de frecuencias, 2,4 GHz o 5 GHz. Y gracias a la tecnología MIMO (Multiple Input	-- Multiple Output), puede operar en varios canales a la vez para una mejor transmisión de datos mediante la incorporación de varias antenas.\\
+
+\subsection{Transmisión de datos}
+El estándar \Wifi fue diseñado para sustituir al estándar Ethernet (802.3). Esto significa que la única diferencia de una \Wifi con una Ethernet son las tramas de datos. La compatibilidad de servicios de redes locales en una red local (LAN) es total.\\

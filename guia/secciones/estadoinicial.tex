@@ -1,0 +1,94 @@
+
+\section{IEEE 802.11}
+\subsection{introducción}
+Hoy en día, el estándar IEEE 802.11, más conocido por \Wifi \ se ha popularizado en las redes domésticas. La comodidad que supone no tener cables en los ordenadores, principalmente portátiles, permite un mejor traslado de los equipos informáticos, ya que es común disponer de tomas de corriente eléctrica en prácticamente todas las paredes de una casa u oficina, pero no suelen encontrarse equipadas de tomas ethernet.\\
+También es más sencilla la conexión de varios ordenadores, ya que no se está tan limitado de recursos (por ejemplo, disponer de un router de 4 puertos ethernet y tener 5 ordenadores). Con \Wifi \ es posible conectar hasta 254 equipos a la misma red sin necesidad de hacer un gasto extra en infraestructuras.\\
+
+El estándar \Wifi dispone de varias especificaciones (a, b, g \ldots), siendo el estándar IEEE802.11n ratificado por IEEE en 2009 como el más actual de esta tecnología. Este estándar tiene una velocidad de 600 Mbps en la capa física, tiene compatibilidad con todos los estándares anteriores y puede trabajar en dos bandas de frecuencias, 2,4 GHz o 5 GHz. Y gracias a la tecnología MIMO (Multiple Input	-- Multiple Output), puede operar en varios canales a la vez para una mejor transmisión de datos mediante la incorporación de varias antenas.\\
+
+\subsection{Transmisión de datos}
+El estándar \Wifi fue diseñado para sustituir al estándar Ethernet (802.3). Esto significa que la única diferencia de una \Wifi con una Ethernet son las tramas de datos. La compatibilidad de servicios de redes locales en una red local (LAN) es total.\\
+
+
+
+\section{Qué son las iwTools}
+Las IwTools son unas herramientas de verificación y configuración de redes \Wifi . 
+DESCRIPCIÓN Iwlist se utiliza para mostrar información adicional de una interfaz de red inalámbrica que no se muestra de iwconfig. El principal argumento se utiliza para seleccionar una categoría de información, iwlist muestra en forma detallada toda la información relacionada con esta categoría.
+
+Parámetro scan
+Devuelve la lista de puntos de acceso y celdas Ad-Hoc dentro de rango y, opcionalmente, un montón de información sobre ellos (ESSID, calidad, frecuencia, modo \ldots). El tipo de información devuelta depende de lo que admite la tarjeta, generalmente muestra la dirección MAC del punto de acceso, su nombre de red o ESSID, canal en que realiza la transmisión, ratio de transferencia y la encriptación de la red.
+
+\subsection{Ejemplo}
+Por medio de la captura de datos de una red, se explicará el significado de cada campo obtenido:
+\lstinputlisting[language=java,caption={Ejemplo de iwlist scan}]{src/iwlistscan.sh}
+
+wlan0     Scan completed :
+Esto significa que ha realizado el escaneo de datos y ha encontrado al menos una red, en caso contrario, mostraría:
+wlan0     No scan results
+
+Clasifica cada red encontrada en celdas (Cells)
+          Cell 01 - Address: 00:26:XX:XX:XX:XX
+          
+                    Channel:9
+                    Frequency:2.452 GHz (Channel 9)
+                    Quality=52/70  Signal level=-58 dBm  
+                    Encryption key:off
+                    ESSID:"llimona de paperet"
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 18 Mb/s
+                              24 Mb/s; 36 Mb/s; 54 Mb/s
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 48 Mb/s
+                    Mode:Master
+                    Extra:tsf=0000005cb9be818d
+                    Extra: Last beacon: 3296ms ago
+                    IE: Unknown: 00126C6C696D6F6E612064652070617065726574
+                    IE: Unknown: 010882848B962430486C
+                    IE: Unknown: 030109
+                    IE: Unknown: 2A0104
+                    IE: Unknown: 2F0104
+                    IE: Unknown: 32040C121860
+                    IE: Unknown: DD090010180203F0000000
+
+
+
+\section{GnuPlot}
+\subsection{Generación de gráficos}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%acabada (o casi)
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Qt}
+\subsection{Descripción de Qt}
+Las librerias gráficas de Qt fueron desarrolladas para disponer de un GUI para C++ multiplataforma por la compañia Trolltech. Qt cambió a licencia GPL en el año 2000, siendo gratuita para el software libre y de pago para el privativo, a 
+partir de la compra de Trolltech por parte de Nokia en 2008.\\
+
+%\figura{0.4}{imgs/capturas/qt-logo.jpg}{Logotipo de Qt}{}{}
+
+\figuraSinMarco{0.4}{imgs/capturas/qt-logo.jpg}{Logotipo de Qt}{Logoqt}{h}
+
+Qt fue utilizada para el desarrollo de KDE entre 1996 y 1998, y éste se convirtió en un escritorio muy popular entre la comunidad GNU/Linux. Esto provocó la aparición del escritorio GNOME con GTK+ debido a que la licencia de Qt se basaba en software propietario. En 1998 los desarrolladores de KDE y Trolltech establecieron la KDE Free Qt Foundation, la cual permitía liberar la biblioteca Qt bajo una licencia tipo BSD10.En el año 2000, Trolltech pasó a ofrecer la biblioteca Qt bajo GPL para la versión Linux, en Mac OS X se publico en 2003 y en MS Windows en 2005. \\
+
+Actualmente, Qt cuenta con tres tipos de licencia; 
+\begin{itemize}
+\item GPL para el desarrollo de código abierto y software libre
+\item QPL de pago para el desarrollo de aplicaciones comerciales
+\item LGPL una licencia gratuita para aplicaciones comerciales
+\end{itemize}
+
+Qt está disponible en Ms Windows y en los sistemas tipo Unix como Linux, BSD, Unix, Mac OS X, también en sistemas embebidos (PDA, Smartphones\ldots) como Linux embedded, Symbian y Ms windows CE. Actualmente, Nokia ha anunciado que no utilizará Qt en sus nuevos terminales con WP7.\\
+
+\subsection{Herramientas Qt utilizadas}
+
+Para el desarrollo del proyecto, se ha utilizado el IDE Qt Creator, que incluye compilador, herramientas para el diseño de la GUI, debugger (GDB)\ldots También dispone de ayudas como indentación automática, resaltado de código, integración con servicios de control de versiones Git\footnote{http://git-scm.com}, Subversion\footnote{http://subversion.tigris.org}, Perforce\footnote{http://www.perforce.com}, CVS\footnote{http://www.cvshome.org} y Mercurial\footnote{http://mercurial.selenic.com}.\\
+
+Qt Creator es una herramienta para el diseño y la creación de interfaces gráficas de usuario (GUI) de widgets Qt. Qt puede componer y personalizar widgets o cuadros de diálogo, utilizando diferentes estilos y resoluciones.
+Los widgets y formularios creados con Qt Creator se integran sin problemas con el código de programación, mediante el mecanismo de señales y ranuras (signal y slot, respectivamente), que permite asignar fácilmente el comportamiento de los elementos gráficos. Todas las propiedades y comportamientos establecidos en Qt Creator se pueden cambiar dinámicamente en el código. \\
+
+
+Qt Creator permite crear y ejecutar aplicaciones. Se entiende el código como código, no sólo como texto sin formato. Esto le permite:
+\begin{itemize}
+\item Escribir código bien formateado e indentado.
+\item Anticipar lo que va a escribir y completar el código.
+\item Visualización en línea de error y mensajes de advertencia.
+\item Le permiten navegar semánticamente a las definiciones y declaraciones de clases, funciones y símbolos.
+\item El desarrollador recibe ayuda sensible al contexto de las clases, funciones y símbolos.
+\item Mostrar las ubicaciones en el código donde se declara una función o una llamada.
+\end{itemize}

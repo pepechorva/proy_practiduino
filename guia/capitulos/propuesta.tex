@@ -1,0 +1,80 @@
+\section{Evaluación de recursos}
+
+\subsection{Propuesta técnica}
+
+\subsection*{Introducción}
+\bigskip 
+Se trata de diseñar una interfaz gráfica en Linux similar al programa Netsurveyor para Ms. Windows utilizando herramientas gratuitas. 
+
+
+\subsection*{Objetivos}
+  
+\begin{itemize}
+
+      \item  Diseño de la \gui.
+      \item  Versión funcional.
+\end{itemize}
+
+\subsection*{Alcance}
+\begin{itemize}
+%	\item DFD, UML
+	\item Requisitos funcionales
+	\item Requisitos de datos
+	\item Objetivos mínimos:
+	\begin{itemize}
+		\item[*] Implementación de una versión funcional del sistema, aunque el diseño sea mejorable o ampliable.
+	\end{itemize}
+
+\end{itemize}
+\date{\today}
+
+\subsection*{Tecnología}
+Para el desarrollo del proyecto se usarán las heramientas iwlist para la adquisición de datos y para la \gui las librerías que el estudiante crea conveniente.
+
+
+
+Este proyecto ha sido realizado mediante herramientas libres, lo cual reduce drásticamente los costes de licencias de software privado. \\
+
+El lenguaje de programación utilizado en el desarrollo es C++ y se han utilizado las librerías gráficas Qt para el interfaz.
+ Para el entendimiento de éstas librerías, se han utilizado principalmente dos libros de desarrollo en el framework QtCreator\footnote{http://qt.nokia.com/products/developer-tools/} y foros en internet.\\
+
+El hecho de utilizar herramientas gratuitas, ha simplificado varios problemas; por un lado, al crear informes en formato PDF, la idea más sencilla ha sido utilizar \LaTeX , lenguaje con el que se está familiarizado y, por otro lado, el uso de GNUPlot ha simplificado la creación de gráficos sin tener que pasar a utilizar OpenGL u otras librerías para generación de gráficos.\\
+
+
+\subsection{planificación}
+La planificación inicial del proyecto ha sido realizada mediante el software OpenProj para Mac Os X. A continuación se muestran los resultados de la planificación.
+ \newpage{\pagestyle{empty}\cleardoublepage} 
+   \includepdf[]{src/planificacion_por_hitos.pdf}
+ \newpage{\pagestyle{empty}\cleardoublepage} 
+    \includepdf[pages={1-3}]{src/planificacion_gantt.pdf}
+ \newpage{\pagestyle{empty}\cleardoublepage} 
+
+\section*{Presupuesto}
+
+Tomando éste proyecto desde cero, la inversión a realizar no es muy elevada. A continuación se detallan los costes del desarrollo:\\
+
+\begin{center}
+\begin{table}
+\begin{tabular}{|c|c|}
+\hline \rule[-2ex]{0pt}{5.5ex} \textbf{Elemento} & Precio \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} Libro C++ GUI Programming with Qt 4 & prestado en la biblioteca (0 \euro) \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} Libro Foundations of Qt Development  & 33\$ \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} Herramientas Qt & 0\euro \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} Herramientas IwTools & 0\euro \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} Gnuplot & 0\euro \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} \LaTeX & 0\euro \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} Licencia ArchLinux & 0\euro \\ 
+\hline \rule[-2ex]{0pt}{5.5ex} total & 33\$ \\ 
+\hline 
+\end{tabular} 
+\caption{Tabla de presupuesto}
+\label{Tabla de presupuesto}
+\end{table}
+\end{center}
+
+\section*{Otros comentarios}
+El rastreo y verificación de redes inalámbricas se ha convertido hoy en una necesidad, al popularizarse el estándar IEEE 802.11. Para una correcta transmisión de datos es necesario tener en cuenta estos puntos:
+\begin{itemize}
+	\item Que la señal del punto de acceso no sea demasiado débil.
+	\item Que de existir más redes inalámbricas, evitar la solapacion en un mismo canal.
+\end{itemize} 

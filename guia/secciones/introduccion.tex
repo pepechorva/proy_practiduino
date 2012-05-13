@@ -1,0 +1,76 @@
+\section{Motivación}
+
+Durante la instalación de redes inalámbricas, es importante verificar que la señal llega correctamente hasta el lugar que nos interese, y que las interferencias causadas por las redes colindantes sean las mínimas posibles, para que la transmisión sea lo más eficiente posible.\\
+
+Un escáner de redes inalámbricas permite solucionar de problemas de una red existente o analizar cual o cuales llegan con más potencia a nuestro receptor. Permite también realizar una auditoría preliminar de la seguridad de la red seleccionada, averiguando si tiene algún mecanismo de protección (contraseña o encriptacion).\\
+
+También permite saber cuántas redes hay en el entorno y la potencia de sus señales, para verificar la cobertura wifi de un determinado espacio, evaluar la posibilidad de roaming, la presencia de interferencias de radiofrecuencia o `puntos muertos'', y la ubicación óptima de los puntos de acceso y las antenas.\\
+
+
+Una herramienta de diagnóstico correspondería a la categoría de escáneres WiFi. El más conocido de esta categoría es NetStumbler. Una herramienta de informes de cada red inalámbrica que detecta, junto con el canal utilizado por el punto de acceso (AP), la potencia de la señal recibida\ldots \\
+
+Aproximadamente cada 100 ms un punto de acceso envía una señal y la tarjetas receptoras inalámbrica 802.11, también conocidas como tarjetas wifi o ``wifis'' las detectan, y añaden el SSID a su lista de redes inalámbricas conocidas. Además, es posible obtener los informes para cada AP individualmente, es decir, los que recibe en su ubicación actual. Esto permite la combinación con un receptor de GPS para realizar mapas de redes inalámbricas. Esto es útil para grandes superficies donde es necesaria la cobertura Wifi en todo el recinto o recorrido.\\
+
+
+
+\section{IEEE 802.11}
+
+
+Hoy en día, el estándar IEEE 802.11, más conocido por Wifi se ha popularizado en las redes domésticas. La comodidad que supone no tener cables en los ordenadores, principalmente portátiles, permite un mejor traslado de los equipos informáticos, ya que es común disponer de tomas de corriente eléctrica en prácticamente todas las paredes de una casa u oficina, pero no suelen encontrarse equipadas de tomas ethernet.\\
+
+También es más sencilla la conexión de varios ordenadores, ya que no se está tan limitado de recursos (por ejemplo, disponer de un router de 4 puertos ethernet y tener 5 ordenadores). Con Wifi es posible conectar hasta 254 equipos a la misma red sin necesidad de hacer un gasto extra en infraestructuras.\\
+
+%%LOGO WIFI
+\figura{0.4}{imgs/capturas/wifilogo.png}{Logotipo de wifi}{}{h}
+
+
+El estándar Wifi dispone de varias especificaciones (a, b, g \ldots), siendo el estándar IEEE802.11n ratificado por IEEE en 2009 como el más actual de esta tecnología. Este estándar tiene una velocidad de 600 Mbps en la capa física, tiene compatibilidad con todos los estándares anteriores y puede trabajar en dos bandas de frecuencias, 2,4 GHz o 5 GHz. Y gracias a la tecnología MIMO (Multiple Input	-- Multiple Output), puede operar en varios canales a la vez para una mejor transmisión de datos mediante la incorporación de varias antenas.\\
+
+Un punto de acceso inalámbrico (WAP) se conecta a un grupo de dispositivos inalámbricos a un lado por cable LAN . Un punto de acceso se asemeja a un hub, la transmisión de datos entre los dispositivos inalámbricos conectados, además de un solo dispositivo conectado por cable, más a menudo un hub o switch Ethernet, permitiendo que los dispositivos inalámbricos para comunicarse con otros dispositivos con cable.\\
+
+%%RED WIFI
+\figuraSinMarco{0.4}{imgs/capturas/WLAN.png}{ejemplo de red inalámbrica}{}{h}
+
+
+Los adaptadores inalámbricos permiten que los dispositivos para conectarse a una red inalámbrica. Estos adaptadores se conectan a los dispositivos con varias interconexiones internas o externas, tales como PCI , miniPCI , USB , ExpressCard , y Cardbus PC Card . A partir de 2010 , la mayoría de los nuevos ordenadores portátiles vienen equipados con adaptadores internos. \\
+
+Los routers inalámbricos integran un punto de acceso inalámbrico, Ethernet switch, y la aplicación interna del firmware del router que proporciona IP routing , NAT y DNS de reenvío a través de un sistema integrado de interfaz WAN. Un router inalámbrico permite red cableada e inalámbrica con dispositivos Ethernet LAN para conectarse a un (por lo general) solo dispositivo WAN, tal como un módem de cable o módem DSL . Un router inalámbrico permite a los tres dispositivos, principalmente el punto de acceso y el router, que se configura a través de una central de servicios públicos. Esta utilidad es por lo general un sistema integrado de servidor web que sea accesible para los clientes inalámbricos y con cable LAN y, opcionalmente, a menudo a los clientes WAN. \\
+	
+%%ROUTER WIRELESS
+\figura{0.5}{imgs/capturas/router.png}{Router wifi}{}{h}
+	
+	
+Los bridges wireless pueden conectar una red cableada a una red inalámbrica. Un bridge es distinto de un punto de acceso: un punto de acceso conecta dispositivos inalámbricos a una red cableada en la capa de enlace de datos . Dos bridges inalámbricos pueden ser utilizados para conectar dos redes de cable sobre un enlace inalámbrico, útil en situaciones donde una conexión por cable puede no estar disponible, por ejemplo, entre dos casas separadas.\\
+
+%%BRIDGE
+\figuraSinMarco{0.6}{imgs/capturas/bridge.png}{Bridge wireless}{}{h}
+
+
+Los extensores o repetidores inalámbricos pueden ampliar el alcance de una red inalámbrica existente. Estratégicamente colocados pueden alargar un área de señal o permitir ampliar el área de la señal para superar obstáculos tales como los relacionados a corredores o edificios en forma de L. Los dispositivos inalámbricos conectados a través de repetidores sufren un periodo de latencia para cada dispositivo. Además, un dispositivo móvil conectado a cualquiera de los repetidores de la cadena tendrá una producción limitada por el "eslabón más débil" entre los dos nodos en la cadena de la cual se origina la conexión a donde finaliza la conexión.\\
+
+%%REPETIDOR WIFI
+\figuraSinMarco{0.6}{imgs/capturas/repetidor.jpg}{Esquema de uso de un repetidor}{}{h}
+
+
+\section{Objetivos y herramientas}
+
+La herramienta de desarrollo (en adelante, Wifi) desarrollada en este proyecto está basada en el programa para Microsoft Windows NetSurveyor\footnote{http://www.performancewifi.net/performance-wifi/products/netsurveyor-network-discovery.htm}. Este proporciona información gráfica de las distintas redes detectadas y permite una interpretación casi intuitiva de sus datos. \\
+
+El objetivo principal de éste proyecto es ofrecer una interfaz gráfica para combinar herramientas de análisis de redes inalámbricas con otras de muestreo estadístico, utilizando una plataforma de desarrollo multiplataforma para tener la opción de hacer versiones para otros sistemas operativos.\\
+
+La creación de Interfaces gráficas tiene una gran relevancia a la hora de interactuar con un programa, permitiendo incluso, un mayor entendimiento de los datos a analizar. En el desarrollo de interfaces es importante tener en cuenta la funcionalidad del programa frente a querer mostrar todos los datos sin aparente criterio o de tener que recurrir a comandos de consola para seleccionar los datos que nos interesen en un momento determinado.\\
+
+La usabilidad de éste proyecto es un factor clave para un correcto análisis de las redes Wifi presentes en el entorno. Es importante que los elementos clave (los datos de las redes) estén en todo momento a la vista del usuario de la aplicación, esto permitirá una visualización más intuitiva de ellas.\\
+
+Otro factor a tener en cuenta es la plataforma en que se va a utilizar la aplicación. Debido a la multitud de dispositivos con receptores Wifi integrados (PDAs, móviles, netbooks\ldots), es conveniente una herramienta que sea fácil de usar y que tenga opción de ser utilizada en otras plataformas.\\
+
+Las herramientas utilizadas en éste proyecto han sido;
+\begin{itemize}
+\item Wireless Tools, concretamente iwlist
+\item GnuPlot
+\item Qt
+\item \LaTeX
+\end{itemize}
+
+Las principales ventajas de utilizar herramientas libres externas al programa son la facilidad de mantener el código actualizado ante posibles errores ``bugs'' de éstas, ya que al ser herramientas muy extendidas, tienen una comunidad de desarrollo y soporte muy amplio y permiten mantener actualizado el software.\\
+

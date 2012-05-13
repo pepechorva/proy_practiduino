@@ -1,0 +1,97 @@
+\documentclass{memoriaPFC}
+
+%
+% DATOS DEL DOCUMENTO
+%
+
+\title{Detector de wifi para Linux}
+
+%\autores{Nombre1 Apellidos1}{Nombre2 Apellidos2}
+\autores{José Chorva Aguilella}{}
+
+\director{Juan Echagüe Guardiola}
+%\directora{Ursula K. Le Guin}
+
+% iaei ii ioi itel
+\titulacion{itis}
+
+% mayo || septiembre (en minúsculas!!)
+\date{junio de 2011}
+
+\resumen{%
+Hoy en día, el estándar IEEE 802.11, más conocido por Wifi se ha popularizado en las redes domésticas. La comodidad que supone no tener cables en los ordenadores, principalmente portátiles, permite un mejor traslado de los equipos informáticos, ya que es común disponer de tomas de corriente eléctrica en prácticamente todas las paredes de una casa u oficina, pero no suelen encontrarse equipadas de tomas ethernet.\\
+
+La creación de Interfaces gráficas tiene una gran relevancia a la hora de interactuar con un programa, permitiendo incluso, un mayor entendimiento de los datos a analizar. En el desarrollo de interfaces es importante tener en cuenta la funcionalidad del programa frente a querer mostrar todos los datos sin aparente criterio o de tener que recurrir a comandos de consola para seleccionar los datos que nos interesen en un momento determinado.\\
+
+Este proyecto ofrece una interfaz gráfica intuitiva para analizar las principales caracterísicas de una red inalámbrica, como son la potencia de la señal y el canal por el que transmiten. Así pues, la usabilidad de éste proyecto es un factor clave para un correcto análisis de las redes Wifi presentes en el entorno. \\
+
+
+}
+\descriptores{wifi, redes, monitorización}
+
+
+%\newcommand{\wifi}{WifiScan }
+%\newcommand{\Wifi}{Wi-Fi }
+%\newcommand{\gui}{interaz gráfica }
+%\newcommand{\guis}{interfaces gráficas }
+
+
+%
+% COMIENZO DEL DOCUMENTO
+%
+\begin{document}
+
+% Portada, resumen, indices
+\frontmatter
+\hacerportada
+\hacerresumen
+\tableofcontents
+\listoffigures % Opcional
+\listoftables % Opcional
+%\listoflistings % Opcional
+
+% Contenidos
+\mainmatter
+
+
+\chapter{Introducción}
+\input{secciones/introduccion}
+
+
+\chapter{Herramientas utilizadas}
+\input{secciones/herramientas}
+
+\chapter{Planificación}
+\input{secciones/planificacion}
+
+\chapter{Especificación de requisitos}
+\input{secciones/requisitos}
+
+\chapter{Caso de uso}
+\input{secciones/casouso}
+
+\chapter{Conclusiones}
+\input{secciones/conclusiones}
+
+\bibliografia{referencias}
+%\bibliografiaOtras{otrasreferencias} %Opcional
+
+% Apéndices
+\backmatter
+\appendix
+%\chapter{Acrónimos}
+%\input{dummy}
+%\chapter{Instalación}
+%\input{instalacion}
+
+\chapter{Código fuente}
+\input{capitulos/codigo}
+
+
+
+%\bibliografia{referencias}
+%\bibliografiaOtras{otrasreferencias} %Opcional
+
+
+
+\end{document}
