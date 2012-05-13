@@ -1,0 +1,6 @@
+Pistas por el otro lado
+potenciómetros en angulo 90º
+LM35 y LDR separadas
+Potenciometro de volumen fuera
+botones mas separados
+buzzer mas cerca de los potenciometros
