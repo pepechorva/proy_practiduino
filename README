@@ -1,1 +1,19 @@
-Shield entrenador de programacion para arduino.
+Repositorio de la Shield entrenadora de programacion para arduino.
+
+Dise–o tanto SH como HW del mismo y objetivos a cumplir:
+
+Ver archivos TODO.txt hay para Hardware y para Software...
+
+
+Este proyecto tiene licencia BeerWare :)
+
+
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <pepe@pepechorva.com> and <josemescuder@gmail.com> wrote this file. 
+ * As long as you retain this notice you can do whatever you want
+ * with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy us a beer in return. Pepe and Josemanu. 
+ * ----------------------------------------------------------------------------
+ */
